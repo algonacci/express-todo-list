@@ -1,0 +1,28 @@
+{
+  "name": "express-todo-list",
+  "version": "1.0.0",
+  "description": "The source code of todo list app built with Express.js",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/algonacci/express-todo-list.git"
+  },
+  "keywords": [
+    "Express",
+    "Todo",
+    "List"
+  ],
+  "author": "Eric Julianto",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/algonacci/express-todo-list/issues"
+  },
+  "homepage": "https://github.com/algonacci/express-todo-list#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^6.9.0"
+  }
+}
