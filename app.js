@@ -38,4 +38,30 @@ app.post("/create", (req, res) => {
   );
 });
 
+app.get("/edit/:id", (req, res) => {
+  connection.query(
+    "SELECT * FROM todos WHERE id = ?",
+    [req.params.id],
+    (error, results) => {
+      if (error) {
+        console.log(error);
+      }
+      res.render("edit.ejs", { todo: results[0] });
+    }
+  );
+});
+
+app.post("/update/:id", (req, res) => {
+  connection.query(
+    "UPDATE todos SET todo = ? WHERE id = ?",
+    [req.body.todo, req.params.id],
+    (error, results) => {
+      if (error) {
+        console.log(error);
+      }
+      res.redirect("/");
+    }
+  );
+});
+
 module.exports = app;
