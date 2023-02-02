@@ -14,7 +14,17 @@
         <input type="text" placeholder="Add Tasks" />
         <button id="push">Add</button>
       </div>
-      <div id="tasks"></div>
+      <div id="tasks">
+        <% todos.forEach((todo, index) => { %>
+        <p class="todo"><%= index + 1 %>. <%= todo.todo %></p>
+        <div>
+          <a href="/edit/<%= todo.id %>">Edit</a>
+          <form action="/delete/<%= todo.id %>" method="POST">
+            <input type="submit" value="Delete" />
+          </form>
+        </div>
+        <% }) %>
+      </div>
     </div>
   </body>
 </html>
