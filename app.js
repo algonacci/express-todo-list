@@ -25,7 +25,6 @@ app.get("/", (req, res) => {
 
 app.post("/create", (req, res) => {
   const todo = req.body.todo;
-  console.log(todo);
   connection.query(
     "INSERT INTO todos (todo) VALUES (?)",
     [todo],
@@ -55,6 +54,19 @@ app.post("/update/:id", (req, res) => {
   connection.query(
     "UPDATE todos SET todo = ? WHERE id = ?",
     [req.body.todo, req.params.id],
+    (error, results) => {
+      if (error) {
+        console.log(error);
+      }
+      res.redirect("/");
+    }
+  );
+});
+
+app.post("/delete/:id", (req, res) => {
+  connection.query(
+    "DELETE FROM todos WHERE id = ?",
+    [req.params.id],
     (error, results) => {
       if (error) {
         console.log(error);
